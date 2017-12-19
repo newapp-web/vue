@@ -9,7 +9,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6" charset="utf-8">
 {{#unless router}}
 import Hello from './Hello'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
@@ -22,7 +22,7 @@ export default {
 }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 </script>
 
-<style>
+<style lang="scss" rel="stylesheet/sass" scoped="scoped">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

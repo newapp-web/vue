@@ -1,43 +1,42 @@
-{{#if_eq build "standalone"}}
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-{{/if_eq}}
-import Vue from 'vue'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-import App from './components/App'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import Vue from 'vue';
+import App from './components/App';
 {{#router}}
-import router from '../router'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import router from '../router';
 {{/router}}
 {{#resource}}
-import resource from 'vue-resource'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import resource from 'vue-resource';
 Vue.use(resource);
 {{/resource}}
-{{#resource}}
-import resource from 'vue-resource'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-Vue.use(resource);
-{{/resource}}
+
 {{#axios}}
-import axios from 'axios'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import axios from 'axios';
+Vue.prototype.$http = axios;
 {{/axios}}
 {{#iview}}
-import iView from 'iview'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-import 'iview/dist/styles/iview.css'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import iView from 'iview';
+import 'iview/dist/styles/iview.css';
 Vue.use(iView);
 {{/iview}}
 
+{{#element}}
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(ElementUI);
+{{/element}}
 
-Vue.config.productionTip = false{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
-/* eslint-disable no-new */
+Vue.config.productionTip = false;
+
+
+
 new Vue({
   el: '#app',
   {{#router}}
   router,
   {{/router}}
-  {{#if_eq build "runtime"}}
-  render: h => h(App){{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-  {{/if_eq}}
-  {{#if_eq build "standalone"}}
   template: '<App/>',
-  components: { App }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-  {{/if_eq}}
-}){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+  components: {
+    App
+  },
+  render: (createElement) => createElement(App)
+});

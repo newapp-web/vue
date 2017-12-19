@@ -4,29 +4,12 @@
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6" charset="utf-8">
 export default {
   name: 'hello',
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
-  font-weight: normal;
-}
+<style lang="scss" rel="stylesheet/sass" scoped="scoped">
 
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
 </style>
